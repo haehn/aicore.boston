@@ -1,6 +1,7 @@
 #
-# conda create --name x1025 python=3.1
+# conda create --name x1025 python=3.10
 # conda activate x1025
+# pip install --pre torch torchvision torchaudio --index-url https://download.pytorch.org/whl/nightly/cu128
 # pip install -r requirements.txt
 
 import chromadb
