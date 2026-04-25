@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>IMPACT</title>
+<style>
+  body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.5;
+    background: black;
+    color: white;
+    font-size: 1.2em;
+  }
+
+  a {
+    color:hotpink;
+    text-decoration: none;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+
+  .row {
+    margin-bottom: 40px;
+  }
+
+  /* Two-column layout */
+  .row.two-col {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+
+  .col {
+    flex: 1;
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+  }
+
+  /* Full-width row */
+  .row.full {
+    width: 100%;
+  }
+
+  /* Wrapped image inside text */
+  .float-img {
+    float: left;
+    width: 420px;
+    margin: 0 20px 10px 0;
+    border-radius: 6px;
+  }
+
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    display: block;
+    clear: both;
+  }
+
+  .thinborder {
+    border: thin solid white;
+  }
+
+
+  .people-row {
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+  }
+
+  .person {
+    text-align: center;
+    width: 400px;
+  }
+
+  .person img {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%; /* clean headshot look */
+    margin-bottom: 10px;
+    filter: grayscale(100%); 
+  }
+
+  .person h3 {
+    margin: 5px 0 4px 0;
+    font-size: 16px;
+  }
+
+  .person p {
+    margin: 0;
+    font-size: 14px;
+    color: #888;
+  }
+
+
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ROW 1: IMAGE LEFT / TEXT RIGHT -->
+  <div class="row two-col">
+    <div class="col">
+      <img src="flyer.png" class="thinborder" alt="The IMPACT Flyer" style="vertical-align: top;">
+    </div>
+    <div class="col">
+      <h2>IMPACT: AI/ML Workforce Training</h2>
+      <p>
+        IMPACT (Immersive Mentored Practicum for AI/ML Career Training) is a hands-on workforce development program based at <a href="https://vdc.umb.edu" target="_blank">the Venture Development Center at UMass Boston</a>. Designed for learners entering AI-driven fields in the life sciences, the program combines a compressed curriculum with intensive, mentor-guided projects.
+      </p>
+      <p>
+        Participants work directly with modern AI infrastructure, including NVIDIA DGX systems, and gain practical experience in data analysis, machine learning, and real-world problem solving. The program emphasizes applied skills, collaboration, and industry readiness through extended lab sessions and project-based learning.
+      </p>
+      <p>
+        IMPACT is supported by <a href="https://www.masslifesciences.com/" target="_blank">the Massachusetts Life Sciences Center</a> and developed in collaboration with academic and industry partners to create scalable pathways into AI/ML careers.
+      </p>
+      <p><strong>APPLICATIONS FOR SPRING 2026 ARE CURRENTLY CLOSED!</strong></p>
+    </div>
+  </div>
+
+  <!-- ROW 2: FULL WIDTH WITH WRAPPED IMAGE -->
+  <div class="row full">
+  <h2>Hands-On Training and Industry Collaboration</h2>
+
+  <div class="story-block clearfix">
+    <img src="group1.png" class="float-img" alt="IMPACT students working together">
+    <p>
+      IMPACT is built around collaborative, project-based learning. Students work in teams, discuss ideas,
+      test models, analyze results, and learn how AI/ML workflows are used in realistic professional settings.
+      Rather than treating machine learning as an abstract topic, the program emphasizes applied problem solving,
+      communication, iteration, and hands-on experimentation.
+    </p>
+    <p>
+      This team-based format helps students build confidence while also developing the practical habits needed
+      in research and industry environments: documenting decisions, explaining results, debugging workflows,
+      and connecting technical methods to real-world needs.
+    </p>
+  </div>
+
+  <div class="story-block clearfix">
+    <img src="group2.png" class="float-img right" alt="IMPACT group discussion">
+    <p>
+      A major strength of the program is its connection to external partners. Students are introduced to
+      authentic challenges from biotechnology, biomedical imaging, AI infrastructure, and data-driven product
+      development. These collaborations help participants see how technical skills translate into career pathways.
+    </p>
+    <p>
+      Partner companies include 
+      <a href="https://iniabiosciences.com" target="_blank">INIA Biosciences</a>,
+      <a href="https://entocellular.com" target="_blank">EntoCellular</a>,
+      <a href="https://giwotech.com" target="_blank">GiwoTech</a>, and
+      <a href="https://x1025.com" target="_blank">x1025</a>.
+      Their involvement gives students exposure to real application domains and helps strengthen the bridge
+      between classroom learning, mentored practice, and workforce readiness.
+    </p>
+  </div>
+
+  <div class="story-block clearfix">
+    <img src="students_at_work.png" class="float-img" alt="IMPACT students at work">
+    <p>
+      Students also gain experience working with advanced AI infrastructure, including high-performance GPU
+      systems available through the UMass Boston AI Core. This access allows them to move beyond small examples
+      and engage with the tools, workflows, and computational environments used in modern AI/ML practice.
+    </p>
+    <p>
+      By combining technical instruction, mentorship, partner-driven project contexts, and hands-on computing,
+      IMPACT creates a practical pathway into AI/ML careers in the life sciences and beyond.
+    </p>
+  </div>
+
+  <div class="story-block clearfix">
+    <img src="dgx.jpg" class="float-img" alt="A dedicated NVIDIA DGX H200 machine">
+<p>
+  A dedicated NVIDIA DGX H200 system is available to IMPACT participants, providing direct access to state-of-the-art GPU computing for training, inference, and large-scale data processing. This infrastructure enables students to work with modern AI models and realistic datasets without the typical resource constraints found in educational settings.
+</p>
+
+<p>
+  By integrating this system into the curriculum, participants gain hands-on experience with high-performance AI workflows, including distributed training, optimization, and deployment. This exposure ensures that students are not only learning concepts, but also working with the same class of infrastructure used in industry and advanced research environments.
+</p>
+  </div>
+</div>
+
+<div class="row full">
+  <h2>Organizers</h2>
+
+  <p>
+    IMPACT is delivered through a collaboration between the <a href="https://aicore.boston" target="_blank">Artificial Intelligence Research Core</a> and <a href="https://vdc.umb.edu/" target="_blank">the Venture Development Center at UMass Boston</a>. The program combines advanced AI infrastructure with an entrepreneurial environment, giving students access to both technical depth and real-world innovation contexts.
+  </p>
+
+  <div class="people-row">
+
+    <div class="person">
+      <img src="daniel.jpg" alt="Daniel Haehn">
+      <h3>Daniel Haehn</h3>
+      <p>IMPACT Head Instructor<br>Director of the AI Research Core<br>
+      Associate Professor of Computer Science<br>
+    UMass Boston</p>
+    </div>
+
+    <div class="person">
+      <img src="avanith.jpg" alt="Daniel Haehn">
+      <h3>Avanith Kanamarlapudi</h3>
+      <p>IMPACT Teaching Assistant<br>Machine Psychology Fellow<br>UMass Boston </p>
+    </div>
+
+    <div class="person">
+      <img src="shubhro.jpg" alt="Shubhro Sen">
+      <h3>Shubhro Sen</h3>
+      <p>IMPACT Principal Investigator<br>Executive Director<br>Venture Development Center<br>UMass Boston </p>
+    </div>
+
+    <div class="person">
+      <img src="maria.jpg" alt="Maria Vasilevsky">
+      <h3>Maria Vasilevsky</h3>
+      <p>IMPACT Co-Principal Investigator<br>Manager of Operations and Outreach<br>Venture Development Center<br>UMass Boston </p>
+    </div>
+
+  </div>
+</div>
+
+<div class="row full">
+  <h2>Sponsored by</h2>
+
+  <a href="https://www.masslifesciences.com/" target="_blank"><img src="mlsc.png" style="width:500px"></a>
+</div>
+
+</div>
+
+</body>
+</html>
