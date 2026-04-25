@@ -89,8 +89,8 @@ def step6_ask(query, embed_model, collection, tokenizer, model, device):
 
     context = "\n".join(results["documents"][0])
 
-    print("\nRetrieved Context:")
-    print(context)
+    # print("\nRetrieved Context:")
+    # print(context)
 
     # Prompt
     prompt = f"""
