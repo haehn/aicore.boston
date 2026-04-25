@@ -101,17 +101,21 @@ Context:
 {context}
 
 Question:
-{query}
-    """
+Q: {query}
+A:
+"""
 
     inputs = tokenizer(prompt, return_tensors="pt").to(device)
 
     outputs = model.generate(
         **inputs,
-        max_new_tokens=200
+        max_new_tokens=200,
+        do_sample=False,
+        pad_token_id=tokenizer.eos_token_id
     )
 
-    answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
+    answer_tokens = outputs[0][inputs["input_ids"].shape[-1]:]
+    answer = tokenizer.decode(answer_tokens, skip_special_tokens=True).strip()
 
     return answer
 
