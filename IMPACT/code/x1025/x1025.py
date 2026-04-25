@@ -55,7 +55,7 @@ def step4_ingest_documents(collection, embed_model):
             ids=[str(i)]
         )
 
-    print("Documents ingested")
+    print("Documents ingested!")
 
 
 # -----------------------------
@@ -133,10 +133,15 @@ def main():
 
     tokenizer, model = step5_load_llm(device)
 
-    query = "Q: What is included in a noon report?"
-    answer = step6_ask(query, embed_model, collection, tokenizer, model, device)
+    while True:
+        query = input("\nQ: ")
+        
+        if query.lower() in ["exit", "quit"]:
+            break
 
-    print(answer)
+        answer = step6_ask(query, embed_model, collection, tokenizer, model, device)
+
+        print(f"A: {answer}")
 
 
 if __name__ == "__main__":
