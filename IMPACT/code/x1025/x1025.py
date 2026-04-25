@@ -15,7 +15,7 @@ import torch
 # -----------------------------
 def step1_setup_device():
     device = "cuda" if torch.cuda.is_available() else "cpu"
-    print(f"[INFO] Using device: {device}")
+    print(f"Using device: {device}")
     return device
 
 
@@ -55,7 +55,7 @@ def step4_ingest_documents(collection, embed_model):
             ids=[str(i)]
         )
 
-    print("[INFO] Documents ingested")
+    print("Documents ingested")
 
 
 # -----------------------------
@@ -72,8 +72,6 @@ def step5_load_llm(device):
         device_map="auto"   # uses your MIG GPU
     )
 
-    print("[INFO] LLM loaded")
-
     return tokenizer, model
 
 
@@ -82,10 +80,8 @@ def step5_load_llm(device):
 # -----------------------------
 def step6_ask(query, embed_model, collection, tokenizer, model, device):
 
-    # Embed query
     q_emb = embed_model.encode([query]).tolist()
 
-    # Retrieve context
     results = collection.query(
         query_embeddings=q_emb,
         n_results=2
@@ -93,27 +89,26 @@ def step6_ask(query, embed_model, collection, tokenizer, model, device):
 
     context = "\n".join(results["documents"][0])
 
-    print("\n[DEBUG] Retrieved Context:")
+    print("\nRetrieved Context:")
     print(context)
 
     # Prompt
     prompt = f"""
-    You are a maritime assistant.
-    Answer based ONLY on the context.
+You are a maritime assistant.
+Answer based ONLY on the context.
 
-    Context:
-    {context}
+Context:
+{context}
 
-    Question:
-    {query}
+Question:
+{query}
     """
 
     inputs = tokenizer(prompt, return_tensors="pt").to(device)
 
     outputs = model.generate(
         **inputs,
-        max_new_tokens=200,
-        temperature=0.1
+        max_new_tokens=200
     )
 
     answer = tokenizer.decode(outputs[0], skip_special_tokens=True)
@@ -124,26 +119,19 @@ def step6_ask(query, embed_model, collection, tokenizer, model, device):
 
 def main():
 
-    # Step 1
     device = step1_setup_device()
 
-    # Step 2
     embed_model = step2_load_embedding_model(device)
 
-    # Step 3
     collection = step3_init_vector_db()
 
-    # Step 4
     step4_ingest_documents(collection, embed_model)
 
-    # Step 5
     tokenizer, model = step5_load_llm(device)
 
-    # Step 6 (test query)
-    query = "What is included in a noon report?"
+    query = "Q: What is included in a noon report?"
     answer = step6_ask(query, embed_model, collection, tokenizer, model, device)
 
-    print("\n[FINAL ANSWER]")
     print(answer)
 
 
