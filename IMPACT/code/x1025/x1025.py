@@ -1,8 +1,7 @@
 #
 # conda create --name x1025 python=3.1
 # conda activate x1025
-# pip install chromadb sentence-transformers transformers accelerate torch
-#
+# pip install -r requirements.txt
 
 import chromadb
 from sentence_transformers import SentenceTransformer
