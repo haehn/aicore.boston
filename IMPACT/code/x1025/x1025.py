@@ -133,6 +133,8 @@ def main():
 
     tokenizer, model = step5_load_llm(device)
 
+    print("Welcome! Enter query or 'exit'.")
+
     while True:
         query = input("\nQ: ")
         
