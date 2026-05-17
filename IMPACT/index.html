@@ -103,7 +103,94 @@
     color: #888;
   }
 
+  .success h2 {
+    margin-bottom: 2rem;
+  }
 
+  .success-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .success-card {
+    overflow: hidden;
+    border-radius: 18px;
+    cursor: pointer;
+  }
+
+  .success-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+    border-radius: 18px;
+  }
+
+.success-card,
+.success-card img {
+  cursor: pointer !important;
+}
+
+  @media (max-width: 900px) {
+    .success-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .success-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .success-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 18px;
+    cursor: zoom-in;
+    transition: transform 0.2s ease;
+  }
+
+  .success-card img:hover {
+    transform: scale(1.02);
+  }
+
+  .success-lightbox {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.88);
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+    cursor: zoom-out;
+  }
+
+  .success-lightbox.active {
+    display: flex;
+  }
+
+  .success-lightbox img {
+    max-width: min(1100px, 92vw);
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    border-radius: 18px;
+    box-shadow: 0 20px 80px rgba(0, 0, 0, 0.55);
+  }
+
+  .success-lightbox-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 2rem;
+    color: white;
+    font-size: 3rem;
+    line-height: 1;
+    cursor: pointer;
+  }
 </style>
 </head>
 <body>
@@ -192,6 +279,41 @@
   </div>
 </div>
 
+<div class="row full success">
+  <h2>Success Stories for Phase 2</h2>
+
+  <div class="success-grid">
+    <div class="success-card">
+      <img src="SUCCESS/blake.png" alt="Blake" onclick="openSuccessImage(this.src, this.alt)">
+    </div>
+
+    <div class="success-card">
+      <img src="SUCCESS/bennie.png" alt="Bennie" onclick="openSuccessImage(this.src, this.alt)">
+    </div>
+
+    <div class="success-card">
+      <img src="SUCCESS/sophia.png" alt="Sophia" onclick="openSuccessImage(this.src, this.alt)">
+    </div>
+
+    <div class="success-card">
+      <img src="SUCCESS/ayden.png" alt="Ayden" onclick="openSuccessImage(this.src, this.alt)">
+    </div>
+
+    <div class="success-card">
+      <img src="SUCCESS/katt.png" alt="Katt" onclick="openSuccessImage(this.src, this.alt)">
+    </div>
+
+    <div class="success-card">
+      <img src="SUCCESS/jon.png" alt="Jon" onclick="openSuccessImage(this.src, this.alt)">
+    </div>
+  </div>
+</div>
+
+<div class="success-lightbox" id="successLightbox" onclick="closeSuccessImage()">
+  <span class="success-lightbox-close">&times;</span>
+  <img id="successLightboxImage" src="" alt="">
+</div>
+
 <div class="row full">
   <h2>Organizers</h2>
 
@@ -237,6 +359,25 @@
 </div>
 
 </div>
+<script>
+  function openSuccessImage(src, alt) {
+    const lightbox = document.getElementById('successLightbox');
+    const image = document.getElementById('successLightboxImage');
 
+    image.src = src;
+    image.alt = alt;
+    lightbox.classList.add('active');
+  }
+
+  function closeSuccessImage() {
+    document.getElementById('successLightbox').classList.remove('active');
+  }
+
+  document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+      closeSuccessImage();
+    }
+  });
+</script>
 </body>
 </html>
